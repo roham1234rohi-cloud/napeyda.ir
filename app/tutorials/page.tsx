@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import Link from "next/link"; import Crumb from "@/components/Crumb"; import { TUTORIALS } from "@/content/tutorials";
+export const metadata: Metadata = { title: "آموزش‌ها", description: "آموزش‌های متنی و مرحله‌به‌مرحله فارسی برای استفاده عملی از هوش مصنوعی.", alternates: { canonical: "/tutorials" } };
+export default function Page() { return <div className="wrap page"><Crumb here="آموزش‌ها" /><h1>آموزش‌ها</h1><div className="grid">{TUTORIALS.map(t => <Link key={t.slug} className="card" href={`/tutorials/${t.slug}`}><span className="tag">{t.level}</span><h3 style={{ marginTop: 8 }}>{t.title}</h3><p>{t.intro}</p><p style={{ fontSize: ".82rem", marginTop: 8 }}>{t.min} دقیقه</p></Link>)}</div></div>; }
